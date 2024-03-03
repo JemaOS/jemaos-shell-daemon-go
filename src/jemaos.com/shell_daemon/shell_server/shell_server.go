@@ -6,13 +6,13 @@ import (
 	"runtime"
 	"strings"
 
-	te "fydeos.com/shell_daemon/shell_server/task_executor"
+	te "jemaos.com/shell_daemon/shell_server/task_executor"
 	"github.com/godbus/dbus/v5"
 )
 
-var DbusPath = dbus.ObjectPath("/io/fydeos/ShellDaemon")
+var DbusPath = dbus.ObjectPath("/io/jemaos/ShellDaemon")
 
-const DbusIface = "io.fydeos.ShellInterface"
+const DbusIface = "io.jemaos.ShellInterface"
 const ShellCommand = 1
 
 // Debug related begin
@@ -127,7 +127,7 @@ func (server *DbusServer) Exit() {
 }
 
 /*
-type FydeNotification struct {
+type JemaNotification struct {
   s_type int
   handler int
   state int

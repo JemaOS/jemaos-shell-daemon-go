@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"os"
 
-	"fydeos.com/shell_daemon/shell_server"
+	"jemaos.com/shell_daemon/shell_server"
 	"github.com/godbus/dbus/v5"
 	"github.com/godbus/dbus/v5/introspect"
 )
 
 const intro = `
 <node>
-    <interface name="io.fydeos.ShellInterface">
+    <interface name="io.jemaos.ShellInterface">
         <method name="SyncExec">
 						<arg direction="in" type="s"/>
             <arg direction="out" type="is"/>
@@ -60,7 +60,7 @@ func main() {
 	conn.Export(server, shell_server.DbusPath, shell_server.DbusIface)
 	conn.Export(introspect.Introspectable(intro), shell_server.DbusPath,
 		"org.freedesktop.DBus.Introspectable")
-	reply, err := conn.RequestName("io.fydeos.ShellDaemon", dbus.NameFlagDoNotQueue)
+	reply, err := conn.RequestName("io.jemaos.ShellDaemon", dbus.NameFlagDoNotQueue)
 	if err != nil {
 		panic(err)
 	}
